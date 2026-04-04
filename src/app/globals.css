@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: #F9F6F0; /* Soft Warm Ivory / Museum White */
+  --color-foreground: #2C2A29; /* Deep Warm Charcoal */
+  --color-accent: #0B3D2E; /* Deep Architectural Emerald */
+  --color-stone: #E5DFD3; /* Subtle Warm Stone Border */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-ping-slow: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes ping-slow {
+    0% { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(2); opacity: 0; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: auto; /* Handled by Lenis */
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-accent selection:text-white transition-colors duration-500 overflow-x-hidden;
+    /* Softened editorial feel - no global uppercase by default */
+  }
+
+  /* The Luxurious Grain Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04; /* Slightly more visible for a paper-like feel */
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: contrast(160%) brightness(100%);
+  }
 }
+
+@layer utilities {
+  .text-mask {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-foreground;
+  }
+  
+  .h-spacing {
+    letter-spacing: 0.1em;
+  }
+
+  /* Elegant Outlined Branding Text */
+  .text-outline {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+
+  /* Museum Framed Image Effect */
+  .framed-print {
+    @apply p-4 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone/50 hover:shadow-[0_40px_80px_rgba(0,0,0,0.12)] transition-shadow duration-700;
+  }
+}
+
+
