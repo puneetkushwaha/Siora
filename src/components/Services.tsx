@@ -40,7 +40,7 @@ export default function Services() {
   });
 
   return (
-    <section id="services" ref={containerRef} className="bg-background pt-16 md:pt-32 pb-32 md:pb-64 relative overflow-hidden">
+    <section id="services" ref={containerRef} className="bg-background pt-16 md:pt-32 pb-16 md:pb-32 relative overflow-hidden">
       
       {/* Background Floating Branding */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.02] select-none z-0">
@@ -52,7 +52,7 @@ export default function Services() {
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Header Section - Cinematic Entrance */}
-        <div className="mb-48 max-w-4xl">
+        <div className="mb-12 md:mb-48 max-w-4xl">
           <div className="flex items-center gap-6 mb-12">
             <span className="text-accent text-[10px] tracking-[0.4em] font-bold uppercase">Disciplines</span>
             <span className="h-[1px] flex-grow bg-stone/30" />
@@ -67,7 +67,7 @@ export default function Services() {
         </div>
 
         {/* Services - Cinematic Staggered Grid */}
-        <div className="space-y-48 md:space-y-96">
+        <div className="space-y-24 md:space-y-48">
           {serviceList.map((service, index) => (
             <ServiceCard key={index} service={service} index={index} />
           ))}
@@ -85,7 +85,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
     offset: ["start end", "end start"]
   });
 
-  const yMove = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const yMove = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const imgScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
 
   return (

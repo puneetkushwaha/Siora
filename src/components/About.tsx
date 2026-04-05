@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="bg-background overflow-hidden pt-32 pb-8 md:pt-48 md:pb-16">
+    <section id="about" className="bg-background overflow-hidden pt-16 md:pt-48 pb-8 md:pb-16">
       
       {/* =========================================
           DESKTOP ABOUT (Hidden on Mobile)
@@ -79,7 +79,7 @@ export default function About() {
           ========================================= */}
       <div className="flex lg:hidden flex-col px-6">
         {/* Framed Image Mobile */}
-        <div className="mb-20">
+        <div className="mb-12">
           <div className="framed-print">
             <div className="relative w-full h-[45vh] overflow-hidden grayscale">
               <Image
@@ -116,7 +116,7 @@ export default function About() {
             </div>
 
             {/* Mobile Metrics */}
-            <div className="grid grid-cols-2 gap-8 mt-16 pt-10 border-t border-stone/50">
+            <div className="grid grid-cols-2 gap-8 mt-10 pt-10 border-t border-stone/50">
               <div>
                 <span className="text-4xl font-serif text-foreground block mb-3">10+</span>
                 <span className="text-[8px] tracking-[0.2em] text-foreground/40 font-bold uppercase">Years Legacy</span>

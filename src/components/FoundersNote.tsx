@@ -5,11 +5,11 @@ import Image from "next/image";
 
 export default function FoundersNote() {
   return (
-    <section className="py-48 bg-background border-t border-stone/20 overflow-hidden relative">
+    <section className="py-20 md:py-48 bg-background border-t border-stone/20 overflow-hidden relative">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           
-          <div className="flex flex-col lg:flex-row gap-24 items-center">
+          <div className="flex flex-col lg:flex-row gap-12 md:gap-24 items-center">
             
             {/* Left Column: Tactile "Polaroid" Visual */}
             <motion.div
@@ -48,7 +48,7 @@ export default function FoundersNote() {
               transition={{ duration: 1.5, delay: 0.3 }}
               className="lg:w-7/12"
             >
-               <div className="space-y-16 max-w-2xl relative">
+               <div className="space-y-10 md:space-y-16 max-w-2xl relative">
                   
                   {/* Decorative Letter Stamp */}
                   <div className="absolute -top-16 -right-10 hidden lg:block opacity-10">
@@ -83,7 +83,7 @@ export default function FoundersNote() {
                   </div>
 
                   {/* Final Script Signature Section */}
-                  <div className="pt-16 border-t border-stone/10 flex flex-col items-start gap-4">
+                  <div className="pt-10 md:pt-16 border-t border-stone/10 flex flex-col items-start gap-4">
                      <p className="text-lg text-foreground/50 font-medium italic mb-2">With Intention,</p>
                      
                      <div className="relative group">

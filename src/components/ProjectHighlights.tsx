@@ -102,7 +102,7 @@ export default function ProjectHighlights() {
       {/* =========================================
           MOBILE PROJECTS (Hidden on Desktop)
           ========================================= */}
-      <section ref={mobileRef} className="block lg:hidden relative h-[300vh] bg-background">
+      <section ref={mobileRef} className="block lg:hidden relative h-[250vh] bg-background">
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           
           {/* Background Branding Solid */}
@@ -112,7 +112,7 @@ export default function ProjectHighlights() {
             </h2>
           </div>
 
-          <motion.div style={{ x: mobileX }} className="flex gap-12 px-8 items-center h-full">
+          <motion.div style={{ x: mobileX }} className="flex gap-8 px-6 items-center h-full">
             {/* Intro Card Mobile */}
             <div className="flex-shrink-0 w-[80vw]">
               <span className="text-accent text-[10px] tracking-[0.4em] mb-6 block font-bold">

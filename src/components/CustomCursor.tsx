@@ -38,7 +38,7 @@ export default function CustomCursor() {
   }, [cursorX, cursorY]);
 
   return (
-    <>
+    <div className="hidden xl:block">
       <motion.div
         className="fixed top-0 left-0 w-4 h-4 bg-accent rounded-full pointer-events-none z-[9999] mix-blend-difference"
         style={{
@@ -63,6 +63,6 @@ export default function CustomCursor() {
           translateY: "-50%",
         }}
       />
-    </>
+    </div>
   );
 }
