@@ -60,11 +60,15 @@ export default function Footer() {
             <div className="space-y-6 text-foreground/40 text-[11px] tracking-wide font-medium uppercase">
               <div className="flex items-center gap-4 hover:text-foreground transition-all duration-700 cursor-pointer group">
                 <Mail size={14} strokeWidth={1.5} className="text-accent group-hover:scale-110 transition-all duration-700" />
-                <span className="group-hover:translate-x-2 transition-transform duration-700">HELLO@SIORA.PRO</span>
+                <span className="group-hover:translate-x-2 transition-transform duration-700">contact@siora.design</span>
               </div>
-              <div className="flex items-center gap-4 hover:text-foreground transition-all duration-700 cursor-pointer group">
-                <MapPin size={14} strokeWidth={1.5} className="text-accent group-hover:scale-110 transition-all duration-700" />
-                <span className="group-hover:translate-x-2 transition-transform duration-700">LUCKNOW, INDIA</span>
+              <div className="flex items-start gap-4 hover:text-foreground transition-all duration-700 cursor-pointer group">
+                <MapPin size={14} strokeWidth={1.5} className="text-accent group-hover:scale-110 transition-all duration-700 mt-1" />
+                <span className="group-hover:translate-x-2 transition-transform duration-700 normal-case leading-relaxed">
+                  Unit No.804B, 8th floor, Levana Cyber Heights, <br />
+                  Vibhuti Khand, Gomti Nagar, Lucknow, <br />
+                  Uttar Pradesh 226010
+                </span>
               </div>
             </div>
           </div>

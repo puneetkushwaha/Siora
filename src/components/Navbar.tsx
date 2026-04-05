@@ -83,6 +83,15 @@ export default function Navbar() {
               <h2 className="text-[40vw] font-serif text-outline leading-none rotate-90 sm:rotate-0">SIORA CAPITAL</h2>
             </div>
 
+            {/* Dedicated Close Button for Mobile Menu */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-10 right-6 text-foreground p-4 z-[60] group"
+              aria-label="Close Menu"
+            >
+              <X size={32} strokeWidth={1} className="transition-transform duration-500 group-hover:rotate-90" />
+            </button>
+
             <div className="flex flex-col items-center space-y-12 relative z-50">
               {navLinks.map((link, i) => (
                 <motion.div
