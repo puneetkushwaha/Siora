@@ -45,7 +45,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[11px] tracking-[0.2em] uppercase font-bold text-foreground/40 hover:text-foreground transition-all duration-500 relative group"
+              className="text-[11px] tracking-[0.2em] uppercase font-bold text-foreground/70 hover:text-foreground transition-all duration-500 relative group"
             >
               {link.name}
               <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full" />
