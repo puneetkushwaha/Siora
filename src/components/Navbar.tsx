@@ -25,16 +25,16 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-1000 ${
-        scrolled ? "bg-background/80 backdrop-blur-xl py-5 border-b border-stone/30" : "bg-transparent py-10"
+        scrolled ? "bg-background/80 backdrop-blur-xl py-6 border-b border-stone/30" : "bg-transparent py-12"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center h-spacing">
         {/* Logo - Museum Style */}
         <Link href="/" className="group flex flex-col items-center">
-          <span className="text-2xl font-serif tracking-[0.2em] font-bold text-foreground uppercase">
+          <span className="text-3xl font-serif tracking-[0.2em] font-bold text-foreground uppercase">
             SIORA
           </span>
-          <span className="text-[8px] tracking-[0.3em] text-accent font-bold mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-700 uppercase">
+          <span className="text-[10px] tracking-[0.3em] text-accent font-bold mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-700 uppercase">
             Est. 2014
           </span>
         </Link>
@@ -45,7 +45,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[10px] tracking-[0.2em] uppercase font-bold text-foreground/40 hover:text-foreground transition-all duration-500 relative group"
+              className="text-[11px] tracking-[0.2em] uppercase font-bold text-foreground/40 hover:text-foreground transition-all duration-500 relative group"
             >
               {link.name}
               <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full" />
@@ -53,7 +53,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/#contact"
-            className="px-10 py-3 text-[10px] tracking-[0.2em] uppercase font-bold border border-stone hover:bg-foreground hover:text-background transition-all duration-700"
+            className="px-10 py-3 text-[11px] tracking-[0.2em] uppercase font-bold border border-stone hover:bg-foreground hover:text-background transition-all duration-700"
           >
             Inquire
           </Link>
