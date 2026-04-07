@@ -66,7 +66,7 @@ export default function ProjectHighlights() {
               >
                 <Link href={`/projects/${project.slug}`} className="block relative">
                   <div className="framed-print">
-                    <div className="relative aspect-[16/10] w-full overflow-hidden transition-all duration-[1.5s]">
+                    <div className={`relative aspect-[16/10] w-full overflow-hidden transition-all duration-[1.5s] ${i % 2 === 0 ? "grayscale hover:grayscale-0" : ""}`}>
                       <Image
                         src={project.images[0]}
                         alt={project.title}
@@ -141,7 +141,7 @@ export default function ProjectHighlights() {
               >
                 <Link href={`/projects/${project.slug}`} className="block relative">
                   <div className="framed-print rotate-[-1deg]">
-                    <div className="relative aspect-[4/5] w-full overflow-hidden transition-all duration-[1s]">
+                    <div className={`relative aspect-[4/5] w-full overflow-hidden transition-all duration-[1s] ${i % 2 === 0 ? "grayscale hover:grayscale-0" : ""}`}>
                       <Image
                         src={project.images[0]}
                         alt={project.title}

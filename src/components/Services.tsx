@@ -108,7 +108,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
           className="w-full md:w-7/12"
         >
           <div className="framed-print group overflow-hidden">
-            <div className="relative aspect-[4/5] md:aspect-video overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-[2s]">
+            <div className={`relative aspect-[4/5] md:aspect-video overflow-hidden transition-all duration-[2s] ${index % 2 === 0 ? "grayscale group-hover:grayscale-0" : ""}`}>
               <motion.div style={{ scale: imgScale }} className="w-full h-full">
                 <Image
                   src={service.image}

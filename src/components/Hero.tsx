@@ -140,7 +140,7 @@ export default function Hero() {
             className="relative w-full max-w-[280px]"
           >
             <div className="framed-print rotate-[-2deg]">
-              <div className="relative aspect-[3/4] overflow-hidden grayscale">
+              <div className="relative aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
                 <Image
                   src="/projects/p1.png"
                   alt="Featured SIORA Space"
