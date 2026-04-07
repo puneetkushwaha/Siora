@@ -26,7 +26,8 @@ export default function FoundersNote() {
                       src="/projects/p4.png" // Using the minimalist "P4" visual
                       alt="The Moment of Realization"
                       fill
-                      className="object-cover scale-110 group-hover:scale-100 transition-transform duration-[3s]"
+                      className="object-cover transition-transform duration-[3s]"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
                     />
                  </div>
                  <div className="mt-8 text-center">

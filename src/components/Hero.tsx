@@ -69,10 +69,12 @@ export default function Hero() {
               <div className="framed-print">
                 <div className="relative aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
                   <Image
-                    src="https://siorainfradesign.com/projects/project-1/3.png"
+                    src="/projects/p3.png"
                     alt="Featured SIORA Space"
                     fill
-                    className="object-cover scale-110"
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 35vw"
                   />
                 </div>
               </div>
@@ -144,6 +146,8 @@ export default function Hero() {
                   alt="Featured SIORA Space"
                   fill
                   className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 80vw, 30vw"
                 />
               </div>
             </div>

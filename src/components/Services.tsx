@@ -115,6 +115,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
                   alt={service.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </motion.div>
             </div>

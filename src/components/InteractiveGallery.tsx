@@ -35,11 +35,6 @@ export const StudioZoom: React.FC<StudioZoomProps> = ({ src, alt, className, isT
     >
       <motion.div
         className="w-full h-full"
-        animate={{
-          scale: isHovered ? 1.5 : 1,
-          transformOrigin: `${mousePos.x}% ${mousePos.y}%`
-        }}
-        transition={{ type: "spring", stiffness: 100, damping: 20, mass: 0.5 }}
       >
         <Image
           src={src}
@@ -47,6 +42,7 @@ export const StudioZoom: React.FC<StudioZoomProps> = ({ src, alt, className, isT
           fill
           className={`object-cover ${isTransparent ? "opacity-90" : ""}`}
           priority
+          sizes="(max-width: 1024px) 100vw, 80vw"
         />
       </motion.div>
       

@@ -21,6 +21,7 @@ export default function About() {
                 alt="The SIORA Architectural Vision"
                 fill
                 className="object-cover scale-105"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
             {/* Museum Style Caption */}
@@ -87,6 +88,7 @@ export default function About() {
                 alt="The SIORA Architectural Vision"
                 fill
                 className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
           </div>

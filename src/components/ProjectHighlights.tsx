@@ -71,7 +71,9 @@ export default function ProjectHighlights() {
                         src={project.images[0]}
                         alt={project.title}
                         fill
-                        className="object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
+                        className="object-cover transition-transform duration-[2s] ease-out"
+                        priority={i === 0}
+                        sizes="(max-width: 1024px) 100vw, 45vw"
                       />
                     </div>
                   </div>
@@ -145,6 +147,7 @@ export default function ProjectHighlights() {
                         alt={project.title}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 1024px) 85vw, 40vw"
                       />
                     </div>
                   </div>
