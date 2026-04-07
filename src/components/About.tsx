@@ -50,7 +50,7 @@ export default function About() {
             
             <h2 className="text-6xl md:text-8xl font-serif text-foreground leading-[1.1] tracking-tighter mb-16">
               Mastering the <br /> 
-              <span className="text-outline italic font-light opacity-50">Art of Space</span>
+              <span className="text-accent italic font-normal">Art of Space</span>
             </h2>
 
             <div className="space-y-10 text-foreground/70 font-light leading-relaxed text-xl max-w-2xl">
@@ -108,7 +108,7 @@ export default function About() {
             
             <h2 className="text-5xl font-serif text-foreground leading-[1.1] tracking-tighter mb-10">
               Mastering the <br /> 
-              <span className="text-outline opacity-40 italic">Art of Space</span>
+              <span className="text-accent italic font-normal">Art of Space</span>
             </h2>
 
             <div className="space-y-8 text-foreground/70 font-light leading-relaxed text-base">
