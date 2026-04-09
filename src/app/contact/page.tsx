@@ -115,33 +115,51 @@ export default function ContactPage() {
 
               {/* Right Column: Visual Component / Digital Journey */}
               <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5 }}
                 className="relative"
               >
-                <div className="aspect-[4/5] bg-stone/10 border border-stone/20 relative group overflow-hidden">
-                   {/* Decorative Visual Element */}
-                   <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-40 transition-opacity duration-1000">
-                      <span className="text-[15vw] font-serif text-outline italic">S.</span>
-                   </div>
+                <div className="aspect-[4/5] relative group overflow-hidden border border-stone/20">
+                   {/* Premium Studio Image */}
+                   <Image 
+                     src="/siora_studio_aesthetic_1775726564538.png" 
+                     alt="SIORA Studio Aesthetic"
+                     fill
+                     className="object-cover transition-transform duration-[3s] group-hover:scale-110"
+                   />
                    
-                   <div className="absolute bottom-12 left-12 right-12 space-y-8 z-10">
-                      <h4 className="text-[10px] tracking-[0.4em] font-bold text-accent uppercase">Digital Journey</h4>
-                      <div className="flex flex-col gap-8">
+                   {/* Gradient Overlay for Readability */}
+                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-80" />
+                   
+                   <div className="absolute bottom-8 left-8 right-8 space-y-8 z-10">
+                      <div className="space-y-2">
+                        <h4 className="text-[10px] tracking-[0.4em] font-bold text-accent uppercase">Digital Journey</h4>
+                        <p className="text-foreground/60 text-xs font-light tracking-wide uppercase">Follow the Studio</p>
+                      </div>
+                      
+                      <div className="flex flex-col gap-4">
                         {['Instagram', 'LinkedIn', 'Facebook'].map(social => (
-                          <a key={social} href="#" className="flex items-center justify-between group/link border-b border-foreground/10 pb-4">
-                            <span className="text-xl font-serif text-foreground group-hover/link:text-accent transition-colors">{social}</span>
-                            <div className="w-8 h-8 rounded-full border border-stone/30 flex items-center justify-center group-hover/link:border-accent group-hover/link:bg-accent group-hover/link:text-white transition-all">
-                              <span className="text-[10px] font-serif">{social.charAt(0)}</span>
+                          <a key={social} href="#" className="flex items-center justify-between group/link border-b border-foreground/5 pb-2">
+                            <span className="text-lg font-serif text-foreground group-hover/link:text-accent transition-colors">{social}</span>
+                            <div className="w-6 h-6 rounded-full border border-stone/30 flex items-center justify-center group-hover/link:border-accent group-hover/link:bg-accent group-hover/link:text-white transition-all">
+                              <span className="text-[8px] font-serif">{social.charAt(0)}</span>
                             </div>
                           </a>
                         ))}
                       </div>
                    </div>
                 </div>
+                
+                {/* Visual Label */}
+                <div className="absolute -right-12 top-1/2 -rotate-90 origin-center hidden xl:block">
+                  <span className="text-[10px] tracking-[1em] text-foreground/20 font-bold uppercase whitespace-nowrap">
+                    ESTABLISHED 2026
+                  </span>
+                </div>
               </motion.div>
+
 
             </div>
 
