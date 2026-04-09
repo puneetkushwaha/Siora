@@ -1,183 +1,231 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowRight, Mail, Phone, MapPin, Send } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
+import { Mail, Phone, MapPin, ArrowUpRight, ArrowDown } from "lucide-react";
 import Image from "next/image";
 
 export default function ContactPage() {
-  // Fetching from ENV
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@siora.design";
   const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 7380663685";
-  const phoneDigits = process.env.NEXT_PUBLIC_PHONE_NUMBER || "7380663685";
+  const phoneDigits = contactPhone.replace(/\s+/g, "");
+
+  const socialLinks = [
+    { name: "Instagram", icon: <ArrowUpRight size={14} />, href: "#", label: "01 / Visual Archive" },
+    { name: "LinkedIn", icon: <ArrowUpRight size={14} />, href: "#", label: "02 / Professional Link" },
+    { name: "Facebook", icon: <ArrowUpRight size={14} />, href: "#", label: "03 / Community Connection" },
+  ];
+
+  // Parallax effects for the hero
+  const y = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1]);
 
   return (
-    <main className="bg-background min-h-screen text-foreground selection:bg-accent selection:text-white font-sans overflow-x-hidden">
+    <main ref={containerRef} className="bg-background min-h-screen text-foreground selection:bg-accent selection:text-white font-sans overflow-x-hidden">
       <Navbar />
 
       {/* =========================================
-          SECTION 01: THE CINEMATIC REVEAL (Hero)
+          SECTION 1: THE VISION (IMERSIVE HERO)
           ========================================= */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        
-        {/* Full-Screen Dramatic Image */}
-        <div className="absolute inset-0 z-0">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
           <Image 
-            src="/studio-reveal.png" 
+            src="/contact-immersive.png" 
             alt="SIORA Cinematic Studio" 
             fill 
-            className="object-cover brightness-[0.4] grayscale contrast-125" 
+            className="object-cover brightness-75" 
             priority
           />
-          {/* Grainy Texture Overlay for Premium Drama */}
-          <div className="absolute inset-0 bg-accent/5 mix-blend-overlay opacity-30" />
-        </div>
+          {/* Deep Vignette for Text Clarity */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70 z-0" />
+          <div className="absolute inset-0 bg-accent/10 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-noise opacity-10" />
+        </motion.div>
 
-        {/* Branding Overlay - Fluid & Bold */}
-        <div className="relative z-10 w-full text-center px-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+        <motion.div 
+          style={{ opacity }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 text-center px-6"
+        >
+          <span className="text-white/60 text-[10px] tracking-[1em] font-bold uppercase mb-8 block">
+            EST. 2026 / Studio Dialogue
+          </span>
+          <h1 className="text-7xl md:text-[8rem] font-serif text-white leading-[0.85] tracking-tighter uppercase mb-12 drop-shadow-xl">
+            Let's <br /> <span className="italic font-light text-white/90 hover:text-white transition-all duration-700">Connect</span>
+          </h1>
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="flex flex-col items-center gap-4 text-white/40"
           >
-            <span className="text-accent text-[12px] tracking-[1em] font-bold mb-8 block uppercase font-sans opacity-80">ESTABLISHED 2026 / LKO</span>
-            <h1 className="text-7xl md:text-[15vw] font-serif text-white leading-none tracking-tighter uppercase inline-block">
-              BEGIN <span className="italic font-light text-outline">DIALogue</span>
-            </h1>
+            <span className="text-[9px] tracking-[0.4em] uppercase font-bold text-white">Scroll to Reveal</span>
+            <ArrowDown size={20} strokeWidth={1} />
           </motion.div>
-        </div>
+        </motion.div>
+      </section>
 
-        {/* Subtle Scroll Hint */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-           <span className="text-[10px] tracking-[0.8em] text-white/40 uppercase font-bold">Discover Perspective</span>
-           <div className="h-12 w-[1px] bg-white/20" />
+      {/* =========================================
+          SECTION 2: THE INQUIRY HUB
+          ========================================= */}
+      <section className="relative z-20 py-8 md:py-10 px-6 bg-background">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1 }}
+            className="space-y-12"
+          >
+            <div className="flex flex-col md:flex-row items-baseline justify-between gap-8 border-b border-stone/30 pb-12">
+              <h2 className="text-5xl md:text-8xl font-serif leading-none uppercase">
+                Begin <br /> <span className="text-accent italic font-light">Legacy</span>
+              </h2>
+              <p className="text-foreground/60 text-sm md:text-lg font-light tracking-wide max-w-md leading-relaxed">
+                We believe that every great structure begins with a conversation. Share your vision, and let’s craft something timeless.
+              </p>
+            </div>
+
+            <div className="relative">
+              <ContactForm defaultService="Architecture Planning" minimal />
+              {/* Decorative grain and subtle shadow for the form in this layout */}
+              <div className="absolute -inset-4 bg-stone/5 -z-10 blur-2xl rounded-full opacity-50" />
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* =========================================
-          SECTION 02: THE DIALOGUE CARDS (Body)
+          SECTION 3: THE DIRECT CONNECTION
           ========================================= */}
-      <section className="relative py-32 md:py-48 bg-background border-t border-stone/20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-7xl mx-auto">
+      <section className="py-8 md:py-10 bg-stone/5 border-y border-stone/20 overflow-hidden relative">
+        {/* Background Decorative Type */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 select-none pointer-events-none opacity-[0.03]">
+          <span className="text-[30vw] font-serif uppercase leading-none">Connect</span>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-24">
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-32">
-              
-              {/* Card 01: VOICE (Asymmetrical Left) */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2 }}
-                className="lg:col-span-6 space-y-12"
-              >
-                <div className="flex items-center gap-6">
-                   <h3 className="text-8xl md:text-[120px] font-serif text-stone leading-none transition-colors hover:text-accent select-none">01</h3>
-                   <div className="h-[1px] flex-grow bg-stone/30" />
-                   <span className="text-accent text-[10px] tracking-[0.6em] font-bold uppercase font-sans">Voice Link</span>
-                </div>
-                
-                <div className="pl-6 md:pl-24 space-y-8">
-                  <h2 className="text-4xl md:text-6xl font-serif text-foreground uppercase tracking-tighter leading-none">
-                    Immediate <br /> Consultation
-                  </h2>
-                  <a href={`tel:${phoneDigits}`} className="group flex items-center gap-6">
-                    <span className="text-2xl md:text-4xl font-light hover:text-accent transition-colors duration-500">{contactPhone}</span>
-                    <div className="w-12 h-12 rounded-full border border-stone/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-700">
-                      <Phone size={18} strokeWidth={1} />
-                    </div>
-                  </a>
-                </div>
-              </motion.div>
+            {/* Direct Link 01: Voice */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="group space-y-6"
+            >
+              <div className="flex items-center gap-4 text-accent">
+                <span className="text-xs font-serif italic">01 /</span>
+                <span className="text-[9px] tracking-[0.4em] font-bold uppercase">Voice</span>
+              </div>
+              <a href={`tel:${phoneDigits}`} className="block">
+                <span className="text-3xl md:text-4xl font-sans tracking-tighter hover:text-accent transition-colors duration-500 block">
+                  {contactPhone}
+                </span>
+                <span className="text-[10px] tracking-widest text-foreground/40 mt-4 block uppercase font-medium">Available Mon - Sat</span>
+              </a>
+            </motion.div>
 
-              {/* Card 02: MAIL (Asymmetrical Right - Offset) */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, delay: 0.2 }}
-                className="lg:col-span-6 lg:mt-32 space-y-12"
-              >
-                <div className="flex items-center gap-6">
-                   <h3 className="text-8xl md:text-[120px] font-serif text-stone leading-none transition-colors hover:text-accent select-none">02</h3>
-                   <div className="h-[1px] flex-grow bg-stone/30" />
-                   <span className="text-accent text-[10px] tracking-[0.6em] font-bold uppercase font-sans">Mail Link</span>
-                </div>
-                
-                <div className="pl-6 md:pl-24 space-y-8">
-                  <h2 className="text-4xl md:text-6xl font-serif text-foreground uppercase tracking-tighter leading-none">
-                    Project <br /> Narratives
-                  </h2>
-                  <a href={`mailto:${contactEmail}`} className="group flex items-center gap-6">
-                    <span className="text-2xl md:text-4xl font-light hover:text-accent transition-colors duration-500">{contactEmail}</span>
-                    <div className="w-12 h-12 rounded-full border border-stone/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-700">
-                      <Mail size={18} strokeWidth={1} />
-                    </div>
-                  </a>
-                </div>
-              </motion.div>
+            {/* Direct Link 02: Mail */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group space-y-6"
+            >
+              <div className="flex items-center gap-4 text-accent">
+                <span className="text-xs font-serif italic">02 /</span>
+                <span className="text-[9px] tracking-[0.4em] font-bold uppercase">Mail</span>
+              </div>
+              <a href={`mailto:${contactEmail}`} className="block">
+                <span className="text-3xl md:text-4xl font-sans tracking-tighter hover:text-accent transition-colors duration-500 block">
+                  {contactEmail}
+                </span>
+                <span className="text-[10px] tracking-widest text-foreground/40 mt-4 block uppercase font-medium">Typically 24h response</span>
+              </a>
+            </motion.div>
 
-              {/* Card 03: PRESENCE (Full Width Bottom) */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, delay: 0.4 }}
-                className="lg:col-span-12 space-y-16 pt-32"
-              >
-                <div className="flex items-center gap-6">
-                   <h3 className="text-8xl md:text-[120px] font-serif text-stone leading-none transition-colors hover:text-accent select-none">03</h3>
-                   <div className="h-[1px] flex-grow bg-stone/30" />
-                   <span className="text-accent text-[10px] tracking-[0.6em] font-bold uppercase font-sans">Studio Base</span>
-                </div>
-                
-                <div className="pl-0 lg:pl-48 flex flex-col md:flex-row items-end justify-between gap-12">
-                  <address className="text-4xl md:text-7xl font-serif text-foreground not-italic leading-[0.9] uppercase tracking-tighter max-w-4xl">
-                     Cyber Heights, <br />
-                     Lucknow, UP / 226010
-                  </address>
-                  
-                  <div className="group w-full md:w-auto">
-                    <a 
-                      href="https://www.google.com/maps/search/?api=1&query=Unit+No.804B%2C+8th+floor%2C+Levana+Cyber+Heights%2C+Vibhuti+Khand%2C+Gomti+Nagar%2C+Lucknow%2C+Uttar+Pradesh+226010"
-                      target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-8 bg-foreground text-background px-12 py-8 text-[11px] tracking-[0.8em] font-bold hover:bg-accent hover:text-white transition-all duration-700 uppercase shadow-2xl"
-                    >
-                      Locate Studio <ArrowRight size={14} className="group-hover:translate-x-4 transition-transform duration-700" />
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
+            {/* Direct Link 03: Studio */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="group space-y-6"
+            >
+              <div className="flex items-center gap-4 text-accent">
+                <span className="text-xs font-serif italic">03 /</span>
+                <span className="text-[9px] tracking-[0.4em] font-bold uppercase">Studio</span>
+              </div>
+              <address className="not-italic">
+                <span className="text-xl md:text-2xl font-serif leading-relaxed block max-w-[280px]">
+                  Levana Cyber Heights, Vibhuti Khand, Lucknow
+                </span>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Unit+No.804B%2C+8th+floor%2C+Levana+Cyber+Heights%2C+Vibhuti+Khand%2C+Gomti+Nagar%2C+Lucknow%2C+Uttar+Pradesh+226010"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[10px] tracking-widest text-accent mt-6 inline-flex items-center gap-3 uppercase font-bold group"
+                >
+                  Locate Studio <ArrowUpRight size={12} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </a>
+              </address>
+            </motion.div>
 
-            </div>
           </div>
         </div>
       </section>
 
       {/* =========================================
-          SECTION 03: THE ARCHIVE HORIZON
+          SECTION 4: SOCIAL ARCHIVES
           ========================================= */}
-      <section className="py-24 md:py-48 bg-stone/5 border-y border-stone/20 overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col items-center text-center space-y-16">
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-               <span className="text-accent text-[10px] tracking-[1em] font-bold uppercase block mb-6">Digital Archives</span>
-               <h2 className="text-5xl md:text-[8vw] font-serif text-foreground leading-[0.8] tracking-tighter uppercase whitespace-nowrap opacity-[0.05] select-none pointer-events-none mb-4">
-                 MANIFEST VISION MANIFEST VISION
-               </h2>
-            </motion.div>
+      <section className="py-8 md:py-10 px-6 bg-background">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-12 mb-8">
+            <h3 className="text-6xl md:text-9xl font-serif leading-none tracking-tighter uppercase">
+              Visual <br /> <span className="italic font-light text-stone">Archives</span>
+            </h3>
+            <p className="text-foreground/40 text-[10px] tracking-[0.5em] uppercase font-bold">
+              Follow the journey
+            </p>
+          </div>
 
-            <div className="flex flex-wrap justify-center gap-12 md:gap-24 relative z-10">
-              {['Instagram', 'LinkedIn', 'Facebook', 'Pinterest'].map((social, idx) => (
-                <a key={social} href="#" className="group space-y-2">
-                  <span className="text-accent text-[9px] tracking-[0.4em] font-bold block transition-all group-hover:translate-y-[-10px] opacity-0 group-hover:opacity-100 uppercase">Archive 0{idx+1}</span>
-                  <span className="text-[12px] md:text-[14px] font-bold tracking-[0.8em] text-foreground/40 hover:text-accent transition-all duration-500 uppercase block">
-                    {social}
-                  </span>
-                </a>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone/20">
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={social.name}
+                href={social.href}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative bg-background p-8 md:p-10 hover:bg-stone/5 transition-colors duration-700 overflow-hidden"
+              >
+                <div className="relative z-10 flex flex-col justify-between h-full min-h-[160px]">
+                  <span className="text-accent text-[10px] tracking-[0.3em] font-bold uppercase">{social.label}</span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-4xl md:text-5xl font-serif tracking-tighter group-hover:italic transition-all duration-700">{social.name}</span>
+                    <div className="w-12 h-12 rounded-full border border-stone/30 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-700">
+                      {social.icon}
+                    </div>
+                  </div>
+                </div>
+                {/* Visual texture */}
+                <div className="absolute right-0 bottom-0 translate-x-1/2 translate-y-1/2 w-32 h-32 bg-accent opacity-0 group-hover:opacity-[0.03] rounded-full transition-all duration-700 blur-3xl" />
+              </motion.a>
+            ))}
           </div>
         </div>
       </section>

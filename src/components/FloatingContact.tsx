@@ -4,7 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Phone, X, Plus } from "lucide-react";
 
-const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER || "7380663685";
+const rawPhoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER || "+91 7380663685";
+const phoneNumber = rawPhoneNumber.replace(/\s+/g, "");
 const whatsappMessage = encodeURIComponent("Hi SIORA, I'm interested in your architecture and design services. Can we discuss?");
 
 export default function FloatingContact() {
@@ -14,13 +15,13 @@ export default function FloatingContact() {
     {
       icon: <MessageSquare size={20} />,
       label: "WHATSAPP",
-      href: `https://wa.me/${phoneNumber}?text=${whatsappMessage}`,
+      href: `https://wa.me/${phoneNumber.replace('+', '')}?text=${whatsappMessage}`,
       color: "bg-[#25D366]",
     },
     {
       icon: <Phone size={20} />,
       label: "CALL NOW",
-      href: `tel:+91${phoneNumber}`,
+      href: `tel:${phoneNumber}`,
       color: "bg-accent",
     },
   ];

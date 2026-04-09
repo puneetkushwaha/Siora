@@ -60,13 +60,24 @@
 
   /* Elegant Outlined Branding Text */
   .text-outline {
-    -webkit-text-stroke: 1px currentColor;
+    -webkit-text-stroke: 1.2px currentColor;
     color: transparent;
+    transition: all 0.7s ease;
+  }
+  
+  .text-outline:hover {
+    color: currentColor;
+    -webkit-text-stroke: 0px transparent;
   }
 
   /* Museum Framed Image Effect */
   .framed-print {
     @apply p-4 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone/50 hover:shadow-[0_40px_80px_rgba(0,0,0,0.12)] transition-shadow duration-700;
+  }
+
+  .bg-noise {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: contrast(160%) brightness(100%);
   }
 }
 

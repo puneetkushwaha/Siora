@@ -5,8 +5,12 @@ import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@siora.design";
+  const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 7380663685";
+  const phoneDigits = contactPhone.replace(/\s+/g, "");
+
   return (
-    <footer className="bg-background text-foreground pt-16 md:pt-32 pb-12 relative overflow-hidden border-t border-stone/50">
+    <footer className="bg-background text-foreground pt-4 pb-12 relative overflow-hidden border-t border-stone/50">
 
       
       {/* Signature Finalé Background Typography - Massive Solid */}
@@ -17,7 +21,7 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12 lg:gap-16 mb-8 md:mb-12">
 
           
           {/* Studio Column */}
@@ -67,18 +71,18 @@ export default function Footer() {
             <h4 className="text-[10px] tracking-[0.2em] font-bold text-accent uppercase">CONNECT</h4>
             <div className="space-y-6 text-foreground/40 text-[13px] tracking-wide font-medium uppercase">
               <a 
-                href="mailto:contact@siora.design"
+                href={`mailto:${contactEmail}`}
                 className="flex items-center gap-4 hover:text-foreground transition-all duration-700 cursor-pointer group w-fit"
               >
                 <Mail size={14} strokeWidth={1.5} className="text-accent group-hover:scale-110 transition-all duration-700" />
-                <span className="group-hover:translate-x-2 transition-transform duration-700">contact@siora.design</span>
+                <span className="group-hover:translate-x-2 transition-transform duration-700">{contactEmail}</span>
               </a>
               <a 
-                href="tel:+917380663685"
+                href={`tel:${phoneDigits}`}
                 className="flex items-center gap-4 hover:text-foreground transition-all duration-700 cursor-pointer group w-fit"
               >
                 <Phone size={14} strokeWidth={1.5} className="text-accent group-hover:scale-110 transition-all duration-700" />
-                <span className="group-hover:translate-x-2 transition-transform duration-700">+91 7380663685</span>
+                <span className="group-hover:translate-x-2 transition-transform duration-700">{contactPhone}</span>
               </a>
               <a 
                 href="https://www.google.com/maps/search/?api=1&query=Unit+No.804B%2C+8th+floor%2C+Levana+Cyber+Heights%2C+Vibhuti+Khand%2C+Gomti+Nagar%2C+Lucknow%2C+Uttar+Pradesh+226010"
