@@ -10,7 +10,7 @@ export default function Footer() {
   const phoneDigits = contactPhone.replace(/\s+/g, "");
 
   return (
-    <footer className="bg-background text-foreground pt-4 pb-12 relative overflow-hidden border-t border-stone/50">
+    <footer className="bg-background text-foreground pt-10 md:pt-16 pb-12 relative overflow-hidden border-t border-stone/50">
 
       
       {/* Signature Finalé Background Typography - Massive Solid */}
@@ -21,21 +21,20 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12 lg:gap-16 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-y-12 gap-x-12 lg:gap-16 mb-8 md:mb-12 text-center sm:text-left">
 
           
           {/* Studio Column */}
-          <div className="space-y-8">
+          <div className="space-y-4 md:space-y-8">
             <h4 className="text-[10px] tracking-[0.2em] font-bold text-accent uppercase">SIORA</h4>
-            <p className="text-foreground/60 text-[14px] leading-relaxed font-light max-w-[240px]">
+            <p className="text-foreground/60 text-[14px] leading-relaxed font-light max-w-[240px] mx-auto sm:mx-0">
               Crafting architectural narratives through precision and heritage. Based in India, working globally.
             </p>
           </div>
 
-          {/* Expertise Column */}
-          <div className="space-y-8">
+          <div className="space-y-4 md:space-y-8 flex flex-col items-center sm:items-start">
             <h4 className="text-[10px] tracking-[0.2em] font-bold text-accent uppercase">EXPERTISE</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-4 flex flex-col items-center sm:items-start">
               {[
                 { name: "Architecture", slug: "architecture" },
                 { name: "Interior Curation", slug: "interiors" },
@@ -52,10 +51,9 @@ export default function Footer() {
           </div>
 
 
-          {/* Socials Column */}
-          <div className="space-y-8">
+          <div className="space-y-4 md:space-y-8 flex flex-col items-center sm:items-start">
             <h4 className="text-[10px] tracking-[0.2em] font-bold text-accent uppercase">SOCIALS</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-4 flex flex-col items-center sm:items-start">
               {["Instagram", "LinkedIn", "Facebook", "Pinterest"].map((item) => (
                 <li key={item}>
                   <Link href="#" className="text-foreground/40 hover:text-foreground hover:translate-x-2 transition-all duration-500 text-[11px] tracking-wide uppercase font-medium inline-block">
@@ -67,9 +65,9 @@ export default function Footer() {
           </div>
 
           {/* Connect Column */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <h4 className="text-[10px] tracking-[0.2em] font-bold text-accent uppercase">CONNECT</h4>
-            <div className="space-y-6 text-foreground/40 text-[13px] tracking-wide font-medium uppercase">
+            <div className="space-y-6 text-foreground/40 text-[13px] tracking-wide font-medium uppercase flex flex-col items-center sm:items-start">
               <a 
                 href={`mailto:${contactEmail}`}
                 className="flex items-center gap-4 hover:text-foreground transition-all duration-700 cursor-pointer group w-fit"
