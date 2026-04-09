@@ -124,7 +124,7 @@ export default function ContactPage() {
                 <div className="aspect-[4/5] relative group overflow-hidden border border-stone/20">
                    {/* Premium Studio Image */}
                    <Image 
-                     src="/siora_studio_aesthetic_1775726564538.png" 
+                     src="/studio-aesthetic.png" 
                      alt="SIORA Studio Aesthetic"
                      fill
                      className="object-cover transition-transform duration-[3s] group-hover:scale-110"
