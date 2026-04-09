@@ -17,20 +17,29 @@ const serviceList = [
   {
     id: "02",
     slug: "interiors",
-    title: "Interior Design",
+    title: "Interior Curation",
     desc: "Thoughtful interiors balancing materials, light, and spatial harmony.",
     image: "/projects/p1.png",
     align: "right"
   },
   {
     id: "03",
-    slug: "consultation",
-    title: "Design Consultation & Allied Services",
+    slug: "turnkey-build",
+    title: "Turnkey Build & Execution",
     desc: "Seamless execution from design to delivery with complete accountability through integrated allied services.",
-    image: "/projects/p5.png",
+    image: "/projects/p4.png",
     align: "left"
+  },
+  {
+    id: "04",
+    slug: "consultation",
+    title: "Design Consultation",
+    desc: "Strategic advice and technical expertise to guide your design journey.",
+    image: "/projects/p5.png",
+    align: "right"
   }
 ];
+
 
 export default function Services() {
   const containerRef = useRef(null);

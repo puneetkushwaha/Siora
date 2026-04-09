@@ -13,8 +13,10 @@ import Footer from "@/components/Footer";
 const serviceMapping: Record<string, string> = {
   architecture: "Architecture Planning",
   interiors: "Interior Curation",
-  consultation: "Turnkey Projects"
+  "turnkey-build": "Turnkey Build & Execution",
+  consultation: "Design Consultation"
 };
+
 
 export default function ServicePage() {
   const params = useParams();

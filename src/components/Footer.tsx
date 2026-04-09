@@ -30,15 +30,21 @@ export default function Footer() {
           <div className="space-y-8">
             <h4 className="text-[10px] tracking-[0.2em] font-bold text-accent uppercase">EXPERTISE</h4>
             <ul className="space-y-4">
-              {["Architecture", "Interior Curation", "Turnkey Build", "Consultation"].map((item) => (
-                <li key={item}>
-                  <Link href="/services" className="text-foreground/40 hover:text-foreground hover:translate-x-2 transition-all duration-500 text-[13px] tracking-wide uppercase font-medium inline-block">
-                    {item}
+              {[
+                { name: "Architecture", slug: "architecture" },
+                { name: "Interior Curation", slug: "interiors" },
+                { name: "Turnkey Build", slug: "turnkey-build" },
+                { name: "Consultation", slug: "consultation" }
+              ].map((item) => (
+                <li key={item.slug}>
+                  <Link href={`/services/${item.slug}`} className="text-foreground/40 hover:text-foreground hover:translate-x-2 transition-all duration-500 text-[13px] tracking-wide uppercase font-medium inline-block">
+                    {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
+
 
           {/* Socials Column */}
           <div className="space-y-8">
@@ -108,9 +114,10 @@ export default function Footer() {
             </span>
           </p>
           <div className="flex gap-12 text-[12px] tracking-wider uppercase text-foreground/40 font-bold">
-            <Link href="#" className="hover:text-accent transition-colors">PRIVACY</Link>
-            <Link href="#" className="hover:text-accent transition-colors">TERMS</Link>
+            <Link href="/privacy" className="hover:text-accent transition-colors">PRIVACY</Link>
+            <Link href="/terms" className="hover:text-accent transition-colors">TERMS</Link>
           </div>
+
         </div>
       </div>
     </footer>
