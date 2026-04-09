@@ -9,7 +9,7 @@ export default function TermsPage() {
     <main className="bg-background min-h-screen text-foreground selection:bg-accent selection:text-white">
       <Navbar />
       
-      <section className="pt-24 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+      <section className="pt-16 pb-8 md:pt-24 md:pb-12 relative overflow-hidden">
         {/* Artistic Background Typography */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 opacity-[0.02] select-none pointer-events-none">
           <h2 className="text-[30vw] font-serif leading-none tracking-tighter uppercase">Legal</h2>
@@ -22,12 +22,13 @@ export default function TermsPage() {
             transition={{ duration: 1.5 }}
             className="max-w-4xl"
           >
-            <span className="text-accent text-[12px] tracking-[0.8em] font-bold mb-8 block uppercase">AGREEMENT</span>
-            <h1 className="text-6xl md:text-8xl font-serif text-foreground leading-[1.1] tracking-tighter mb-12 uppercase">
+            <span className="text-accent text-[12px] tracking-[0.8em] font-bold mb-4 block uppercase">AGREEMENT</span>
+            <h1 className="text-5xl md:text-7xl font-serif text-foreground leading-[1.1] tracking-tighter mb-8 uppercase">
               Terms & <br /> <span className="italic font-light text-outline">Conditions</span>
             </h1>
             
-            <div className="space-y-12 text-foreground/70 font-light leading-relaxed text-lg pb-16">
+            <div className="space-y-8 text-foreground/70 font-light leading-relaxed text-lg pb-8">
+
 
               <div className="space-y-6">
                 <h3 className="text-xl font-serif text-foreground uppercase tracking-widest border-b border-stone/20 pb-4">Terms of Use</h3>

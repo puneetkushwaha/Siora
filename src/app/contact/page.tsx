@@ -12,9 +12,9 @@ export default function ContactPage() {
     <main className="bg-background min-h-screen text-foreground selection:bg-accent selection:text-white">
       <Navbar />
 
-      <section className="pt-24 pb-16 md:pt-40 md:pb-32 relative overflow-hidden">
+      <section className="pt-2 pb-2 md:pt-4 md:pb-8 relative overflow-hidden">
         {/* Artistic Background Typography */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 opacity-[0.03] select-none pointer-events-none">
+        <div className="absolute top-1/6 left-1/2 -translate-x-1/2 opacity-[0.03] select-none pointer-events-none">
           <h2 className="text-[35vw] font-serif leading-none tracking-tighter uppercase text-outline">Connect</h2>
         </div>
 
@@ -25,15 +25,16 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
-              className="mb-12 md:mb-24"
+              className="mb-0 md:mb-2"
             >
-              <span className="text-accent text-[12px] tracking-[0.8em] font-bold mb-8 block uppercase">Get in Touch</span>
-              <h1 className="text-7xl md:text-9xl font-serif text-foreground leading-[0.9] tracking-tighter uppercase h-spacing">
+              <span className="text-accent text-[10px] tracking-[0.4em] font-bold mb-0 block uppercase">Get in Touch</span>
+              <h1 className="text-3xl md:text-6xl font-serif text-foreground leading-[0.9] tracking-tighter uppercase h-spacing">
                 Studio <br /> <span className="italic font-light text-outline opacity-40">Presence</span>
               </h1>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 border-t border-stone/20 pt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 border-t border-stone/20 pt-4">
+
 
               
               {/* Communication Column */}
@@ -42,14 +43,14 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="space-y-12"
+                className="space-y-4"
               >
                 <div className="space-y-4">
                   <span className="text-accent text-[10px] tracking-[0.4em] font-bold uppercase block">Communication</span>
                   <h3 className="text-3xl font-serif text-foreground uppercase tracking-tight">Direct Channels</h3>
                 </div>
                 
-                <div className="space-y-8">
+                <div className="space-y-6">
                   <a 
                     href="mailto:contact@siora.design"
                     className="flex flex-col gap-2 group cursor-pointer w-fit"
@@ -168,7 +169,7 @@ export default function ContactPage() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, delay: 0.8 }}
-              className="mt-24 md:mt-32 text-center pt-16 border-t border-stone/10"
+              className="mt-12 md:mt-16 text-center pt-8 border-t border-stone/10"
             >
 
               <p className="text-foreground/40 text-sm tracking-widest font-light mb-10 max-w-xl mx-auto uppercase leading-relaxed">

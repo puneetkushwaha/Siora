@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-background text-foreground pt-16 md:pt-48 pb-12 relative overflow-hidden border-t border-stone/50">
+    <footer className="bg-background text-foreground pt-8 md:pt-16 pb-8 relative overflow-hidden border-t border-stone/50">
       
       {/* Signature Finalé Background Typography - Massive Solid */}
       <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none opacity-[0.07]">
@@ -16,7 +16,8 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8 md:mb-12">
+
           
           {/* Studio Column */}
           <div className="space-y-8">
