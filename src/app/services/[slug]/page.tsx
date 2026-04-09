@@ -40,7 +40,8 @@ export default function ServicePage() {
       <Navbar />
 
       {/* Hero Section - Artistic Impact */}
-      <section className="relative pt-48 pb-24 md:pt-64 md:pb-32 overflow-hidden border-b border-stone/20 mb-24">
+      <section className="relative pt-32 pb-16 md:pt-48 md:pb-24 overflow-hidden border-b border-stone/20 mb-16">
+
         {/* Large Background Solid Number */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] select-none pointer-events-none">
           <h2 className="text-[50vw] font-serif leading-none tracking-tighter uppercase">
@@ -95,8 +96,8 @@ export default function ServicePage() {
       </section>
 
       {/* Philosophy & Narrative */}
-      <section className="container mx-auto px-6 mb-32">
-        <div className="max-w-4xl mx-auto space-y-16">
+      <section className="container mx-auto px-6 mb-24">
+        <div className="max-w-4xl mx-auto space-y-12">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -107,9 +108,9 @@ export default function ServicePage() {
             <span className="text-[10px] tracking-[0.4em] font-bold text-accent uppercase">PHILOSOPHY</span>
           </motion.div>
           
-          <div className="space-y-12">
+          <div className="space-y-8">
              {details.description.map((para, i) => (
-                <p key={i} className="text-xl md:text-3xl font-light text-foreground/80 leading-relaxed italic">
+                <p key={i} className="text-xl md:text-2xl font-light text-foreground/80 leading-relaxed italic">
                   {para}
                 </p>
              ))}
@@ -118,18 +119,18 @@ export default function ServicePage() {
       </section>
 
       {/* Capabilities - Grid Style */}
-      <section className="bg-stone/10 py-32 border-y border-stone/20 mb-32">
+      <section className="bg-stone/10 py-24 border-y border-stone/20 mb-24">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-[10px] tracking-[0.6em] font-bold text-accent mb-20 text-center uppercase">SERVICE CAPABILITIES</h3>
+            <h3 className="text-[10px] tracking-[0.6em] font-bold text-accent mb-16 text-center uppercase">SERVICE CAPABILITIES</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {details.capabilities.map((capability, i) => (
-                <div key={i} className="p-12 bg-background border border-stone/30 shadow-none hover:border-accent transition-all duration-700">
-                  <h4 className="text-3xl font-serif text-foreground mb-10 tracking-tighter uppercase">{capability.title}</h4>
-                  <ul className="space-y-6">
+                <div key={i} className="p-10 bg-background border border-stone/30 shadow-none hover:border-accent transition-all duration-700">
+                  <h4 className="text-2xl font-serif text-foreground mb-8 tracking-tighter uppercase">{capability.title}</h4>
+                  <ul className="space-y-5">
                     {capability.items.map((item, j) => (
-                      <li key={j} className="flex items-center gap-4 text-[11px] tracking-widest text-foreground/50 font-bold uppercase group">
+                      <li key={j} className="flex items-center gap-4 text-[10px] tracking-widest text-foreground/50 font-bold uppercase group">
                         <CheckCircle2 size={12} className="text-accent group-hover:scale-125 transition-transform" />
                         {item}
                       </li>
@@ -143,25 +144,26 @@ export default function ServicePage() {
       </section>
 
       {/* Process - Editorial Timeline */}
-      <section className="container mx-auto px-6 mb-48">
+      <section className="container mx-auto px-6 mb-32">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-[10px] tracking-[0.6em] font-bold text-accent mb-24 uppercase">THE INTENT-DRIVEN PROCESS</h3>
+          <h3 className="text-[10px] tracking-[0.6em] font-bold text-accent mb-20 uppercase">THE INTENT-DRIVEN PROCESS</h3>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {details.process.map((p, i) => (
-              <div key={i} className="space-y-8 relative">
-                <span className="text-6xl font-serif text-outline opacity-20 block">{p.step}</span>
-                <h4 className="text-2xl font-serif text-foreground uppercase tracking-tight">{p.title}</h4>
+              <div key={i} className="space-y-6 relative">
+                <span className="text-5xl font-serif text-outline opacity-20 block">{p.step}</span>
+                <h4 className="text-xl font-serif text-foreground uppercase tracking-tight">{p.title}</h4>
                 <p className="text-sm text-foreground/60 leading-relaxed font-light tracking-wide italic">
                   {p.desc}
                 </p>
                 {/* Connector line for desktop */}
-                {i < 2 && <div className="hidden lg:block absolute top-[30px] -right-[15%] w-1/4 h-[1px] bg-stone/30" />}
+                {i < 2 && <div className="hidden lg:block absolute top-[25px] -right-[10%] w-[15%] h-[1px] bg-stone/30" />}
               </div>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* Embedded Contact Section - Smart Pre-selection */}
       <div id="contact" className="border-t border-stone/20 pt-32">

@@ -12,7 +12,7 @@ export default function ContactPage() {
     <main className="bg-background min-h-screen text-foreground selection:bg-accent selection:text-white">
       <Navbar />
 
-      <section className="pt-48 pb-24 md:pt-64 md:pb-48 relative overflow-hidden">
+      <section className="pt-24 pb-16 md:pt-40 md:pb-32 relative overflow-hidden">
         {/* Artistic Background Typography */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 opacity-[0.03] select-none pointer-events-none">
           <h2 className="text-[35vw] font-serif leading-none tracking-tighter uppercase text-outline">Connect</h2>
@@ -25,7 +25,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5 }}
-              className="mb-24 md:mb-48"
+              className="mb-12 md:mb-24"
             >
               <span className="text-accent text-[12px] tracking-[0.8em] font-bold mb-8 block uppercase">Get in Touch</span>
               <h1 className="text-7xl md:text-9xl font-serif text-foreground leading-[0.9] tracking-tighter uppercase h-spacing">
@@ -33,7 +33,8 @@ export default function ContactPage() {
               </h1>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-16 border-t border-stone/20 pt-24">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 border-t border-stone/20 pt-16">
+
               
               {/* Communication Column */}
               <motion.div 
@@ -167,8 +168,9 @@ export default function ContactPage() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, delay: 0.8 }}
-              className="mt-48 text-center pt-24 border-t border-stone/10"
+              className="mt-24 md:mt-32 text-center pt-16 border-t border-stone/10"
             >
+
               <p className="text-foreground/40 text-sm tracking-widest font-light mb-10 max-w-xl mx-auto uppercase leading-relaxed">
                 For detailed project discussions or collaboration requests, please use our dedicated inquiry portal.
               </p>
