@@ -26,9 +26,10 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-1000 ${
-        scrolled ? "bg-background/80 backdrop-blur-xl py-2 border-b border-stone/30" : "bg-transparent py-4"
+        scrolled ? "bg-background/80 backdrop-blur-xl py-4 border-b border-stone/30" : "bg-transparent py-6"
       }`}
     >
+
 
       <div className="container mx-auto px-6 flex justify-between items-center h-spacing">
         {/* Logo - Museum Style */}
