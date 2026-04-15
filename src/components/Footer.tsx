@@ -108,12 +108,12 @@ export default function Footer() {
             <span>
               DEVELOPED BY{" "}
               <a 
-                href="https://www.linkedin.com/in/puneettkushwaha/" 
+                href="https://www.vervenovatech.com/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-foreground hover:text-accent transition-colors font-bold"
               >
-                PUNEET KUSHWAHA
+                VERVE NOVA TECHNOLOGIES PVT LTD
               </a>
             </span>
           </p>
