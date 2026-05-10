@@ -6,7 +6,7 @@ import type { NextRequest } from 'next/server';
  * Set this to 'true' to pause the website and show the hold page.
  * Set this to 'false' to keep the website running normally.
  */
-const IS_WEBSITE_PAUSED = true; 
+const IS_WEBSITE_PAUSED = false; 
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
